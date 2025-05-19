@@ -9,6 +9,7 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import { useState } from "react";
+import { useProductStore } from "../store/product";
 
 const CreatePage = () => {
   const [newProduct, setNewProduct] = useState({
@@ -16,9 +17,12 @@ const CreatePage = () => {
     price: "",
     image: "",
   });
+  const { createProduct } = useProductStore();
 
   const handleAddProduct = async () => {
-    console.log("Adding product:", newProduct);
+    const { success, message } = await createProduct(newProduct);
+    console.log("Success:", success);
+    console.log("Message:", message);
   };
 
   return (
