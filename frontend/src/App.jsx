@@ -1,7 +1,7 @@
 // import { useState } from "react";
 // import reactLogo from "./assets/react.svg";
 // import viteLogo from "/vite.svg";
-import { Box, Button, ButtonGroup } from "@chakra-ui/react";
+import { Box, Button, ButtonGroup, useColorModeValue } from "@chakra-ui/react";
 import { Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import CreatePage from "./pages/CreatePage";
@@ -12,7 +12,7 @@ function App() {
 
   return (
     <>
-      <Box minH={"100vh"}>
+      <Box minH={"100vh"} bg={useColorModeValue("gray.100", "gray.800")}>
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
